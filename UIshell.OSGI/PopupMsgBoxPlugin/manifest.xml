@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0"
+        SymbolicName="PopupMesgBoxPlugin"
+        Name="PopupMsgBoxPlugin"
+        Version="1.0.0.0"
+		StartLevel="1"
+        InitializedState="Active" >
+	<Activator Type="PopupMsgBoxPlugin.PopupMsgBox" />
+	<Runtime>
+		<Assembly Path="PopupMsgBox.dll" />
+	</Runtime>
+	<ExtensionPoint Point="BundleDemoA.ExtensionA" />
+</Bundle>
+
+<!--<Bundle xmlns="urn:uiosp-bundle-manifest-2.0" Name="test1" SymbolicName="test1SymbolicName" Version="1.2.0" InitializedState="Installed" StartLevel="2" HostBundleSymbolicName="host" HostBundleVersion="[1.2,2.0)">
+<Activator Type="com.uishell.Activator" Policy="Lazy" />
+<Runtime>
+	<Assembly Path="a.dll;b.dll;/bin/dir1;/bin/dir2;/lib" />
+	--><!-- 引用指定程序集 --><!--
+	<Assembly Path="a.dll" Share="true" />
+	--><!-- 依赖指定Bundle的某个程序集 --><!--
+	<Dependency BundleSymbolicName="UIShell.RIAShell" BundleVersion="[1.0,2.0]" AssemblyName="UIShell.RIAShell.Shell" AssemblyVersion="[1.1,2.1]" Resolution="Mandatory" />
+	--><!-- 依赖指定Bundle的所有程序集 --><!--
+	<Dependency BundleSymbolicName="id1" BundleVersion="[1.0,2.0)" />
+</Runtime>
+<Services>
+	<Service Interface="i1;i12" Type="Component1" />
+	<Service Interface="i2;i21" Type="Component2" />
+	<Service Interface="i3;i31" Type="Component3" />
+</Services>
+<ExtensionPoint Point="Plugin.PointName" Schema="schema/RightCorner.xsd" />
+<Extension Point="Pa.Point1" />
+<BundleInfo ManifestVersion="2" DocumentLocation="http://temporg.com" UpdateLocation="http://temporg.com" Category="TestBundle" Description="A test bundle." Author="C.Z.B" ContactAddress="UIShell" Copyright="Copyright @UIShell" />
+</Bundle>-->

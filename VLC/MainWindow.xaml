@@ -1,0 +1,57 @@
+﻿<Window x:Class="VLC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vlc="clr-namespace:Vlc.DotNet.Wpf;assembly=Vlc.DotNet.Wpf"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        BorderBrush="Cyan"
+        Background="Black"
+        BorderThickness="2"
+        ResizeMode="NoResize"
+        Title="VLC视频播放" Height="600" Width="1000">
+
+    <Window.Resources>
+        <Style x:Key="BigFontButton">
+            <Style.Setters>
+                <Setter Property="Control.FontSize" Value="30"></Setter>
+                <Setter Property="Control.FontFamily" Value="楷体"></Setter>
+            </Style.Setters>
+
+            <!--在样式中设置触发器-->
+            <Style.Triggers>
+                <!--如果元素获取了焦点。-->
+                <Trigger Property="Control.IsFocused" Value="true">
+                    <!--设置其中的元素属性。设置前景色为紫色。-->
+                    <Setter Property="Control.Foreground" Value="Pink"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--设置一个简单的触发器，在触发器中改变元素的背景色。-->
+        <Style x:Key="SetButton">
+            <Style.Triggers>
+                <Trigger Property="Control.IsEnabled" Value="True">
+                    <Setter Property="Control.Background" Value="Yellow"></Setter>
+                </Trigger>
+                <!--设置触发器的路由事件-->
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Border BorderBrush="Cyan">
+            <DockPanel>
+                <DockPanel DockPanel.Dock="Bottom">
+                    <StackPanel Orientation="Horizontal" Background="Black">
+                        <TextBox Height="30" Width="200" Background="Black" BorderBrush="Cyan" Foreground="Cyan" Name="txtRtsp" TextAlignment="Center"  VerticalContentAlignment="Center" Text="https://vg-dl.nos-eastchina1.126.net/video/map.mp4"></TextBox>
+                        <Button Height="30" Width="100"   Name="ass" Style="{StaticResource SetButton}"  Click="Button_Click">播放</Button>
+                        <Button Height="30" Width="100" Background="Cyan"   Click="Button_Click_1">停止</Button>
+                    </StackPanel>
+                </DockPanel>
+                <vlc:VlcControl Name="vlcCtr"></vlc:VlcControl>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>

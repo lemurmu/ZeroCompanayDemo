@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Bundle xmlns="urn:uiosp-bundle-manifest-2.0"
+        SymbolicName="PrintMessagePlugin"
+        Name="PrintMessagePlugin"
+        Version="1.0.0.0"
+		StartLevel="2"
+        InitializedState="Active" >
+	<Activator Type="PrintMessagePlugin.PrintMessage" />
+	<Runtime>
+		<Assembly Path="PrintMessage.dll" />
+	</Runtime>
+	<Extension Point="BundleDemoA.ExtensionA">
+		<Item Name="菜单A"></Item>
+		<Item Name="菜单B"></Item>
+		<Item Name="菜单C"></Item>
+	</Extension>
+</Bundle>
+

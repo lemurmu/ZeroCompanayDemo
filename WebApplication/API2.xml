@@ -1,0 +1,54 @@
+﻿<?xml version="1.0"?>
+<doc>
+	<assembly>
+		<name>TB.AspNetCore.Swagger.SApi</name>
+	</assembly>
+	<members>
+		<member name="M:WebApplication.Controllers.WeatherForecastController.Get()">
+			<summary>
+				查询随机天气
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:WebApplication.Controllers.WeatherForecastController.GetWeatherByName(System.Int32)">
+			<summary>
+				查询天气
+			</summary>
+			<param name="index">天气索引</param>
+			<returns></returns>
+		</member>
+		<member name="M:WebApplication.Controllers.WeatherForecastController.GetSunmmaries()">
+			<summary>
+				查询所有天气内容
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:WebApplication.Controllers.StudentController.allStudents()">
+			<summary>
+				获取学生列表
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:WebApplication.Controllers.StudentController.queryStudents(System.String)">
+			<summary>
+				查找学生
+			</summary>
+			<param name="name">学生姓名</param>
+			<returns></returns>
+		</member>
+		<member name="M:WebApplication.Controllers.StudentController.saveStudents(WebApplication.Model.StudentInfo)">
+			<summary>
+				添加学生
+			</summary>
+			<param name="info">学生信息</param>
+			<returns></returns>
+		</member>
+		<member name="M:WebApplication.Controllers.StudentController.Login(WebApplication.Model.Acount)">
+			<summary>
+				登录
+			</summary>
+			<param name="acount">学生信息</param>
+			<returns></returns>
+		</member>
+	</members>
+</doc>
