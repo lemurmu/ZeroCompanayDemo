@@ -56,6 +56,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpeg", "FFmpeg\FFmpeg.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VLC", "VLC\VLC.csproj", "{CA05D8E8-44AE-49E9-A78A-05397C529A36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanUI.Demo", "NanUI.Demo\NanUI.Demo.csproj", "{5F56CA7A-0180-45C2-856A-DCBACFF0BF28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -150,6 +152,10 @@ Global
 		{CA05D8E8-44AE-49E9-A78A-05397C529A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA05D8E8-44AE-49E9-A78A-05397C529A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA05D8E8-44AE-49E9-A78A-05397C529A36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F56CA7A-0180-45C2-856A-DCBACFF0BF28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F56CA7A-0180-45C2-856A-DCBACFF0BF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F56CA7A-0180-45C2-856A-DCBACFF0BF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F56CA7A-0180-45C2-856A-DCBACFF0BF28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
