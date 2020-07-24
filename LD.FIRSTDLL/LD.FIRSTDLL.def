@@ -1,0 +1,6 @@
+LIBRARY	"LD.FIRSTDLL"
+DESCRIPTION  'Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+Add		@1
