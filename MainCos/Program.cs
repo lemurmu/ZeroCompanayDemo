@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
@@ -21,6 +22,7 @@ namespace MainCos
         static object syncObj = new object();
         static void Main(string[] args)
         {
+            testfloat();
             Console.ForegroundColor = ConsoleColor.Cyan;
 
             int len = args.Length;
@@ -78,7 +80,7 @@ namespace MainCos
             //   Console.WriteLine(5 / 2);
             stopwatch.Stop();
             Console.WriteLine(stopwatch.ElapsedMilliseconds);
-           // Console.WriteLine(typeof(double[][][]).BaseType);
+            // Console.WriteLine(typeof(double[][][]).BaseType);
 
             Test4DArray();
 
@@ -91,7 +93,7 @@ namespace MainCos
             //}
 
             //GetSet();
-
+            Write();
             Console.ReadKey();
         }
 
@@ -114,7 +116,7 @@ namespace MainCos
             object[] objs = new object[10];
             for (int i = 0; i < 10; i++)
             {
-                objs[i]= new double[10];
+                objs[i] = new double[10];
             }
             for (int i = 0; i < 10; i++)
             {
@@ -135,7 +137,7 @@ namespace MainCos
         {
             Random rd = new Random();
             var stopwatch = Stopwatch.StartNew();
-            double[,,,] testArr = new double[2, 64, 64,1024];
+            double[,,,] testArr = new double[2, 64, 64, 1024];
             for (int i = 0; i < testArr.GetLength(0); i++)
             {
                 for (int j = 0; j < testArr.GetLength(1); j++)
@@ -144,9 +146,9 @@ namespace MainCos
                     {
                         for (int l = 0; l < testArr.GetLength(3); l++)
                         {
-                            testArr[i, j, k,l] = rd.Next(0, 100);
+                            testArr[i, j, k, l] = rd.Next(0, 100);
                         }
-                     
+
                     }
                 }
             }
@@ -238,6 +240,31 @@ namespace MainCos
         public static T ConvertToNestedArray<T>(object dest)
         {
             return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(dest));
+        }
+
+
+        public static void Write()
+        {
+            string path = "..\\Data\\111.txt";
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                sw.WriteLine("abc");
+                sw.WriteLine("abc");
+                sw.WriteLine("abc");
+
+                sw.Flush();
+                sw.Close();
+            }
+        }
+
+
+        public static void testfloat()
+        {
+            Console.WriteLine(1e6);//1*10的6次方
+            Console.WriteLine(2e6);
+            Console.WriteLine(2e7);
+            Console.WriteLine(2e2);
+            Console.WriteLine(12.56/1e6);
         }
     }
 }

@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="aaa.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="fs.cpp" />
     <ClCompile Include="ttt.cpp" />

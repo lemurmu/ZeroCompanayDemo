@@ -7,6 +7,7 @@
 #include"fs.h"
 #include"../Dll/pch.h"
 #include "ConsoleApplication1.h"
+#include <vector>
 using namespace std;
 
 ttt t;
@@ -15,7 +16,28 @@ ttt t;
 extern wchar_t* AnsiToUnicode(const char* szStr);
 extern char* UnicodeToAnsi(const wchar_t* szStr);
 typedef int(__stdcall* PUBadd)(int a, int b);
+extern  void ShowMessage(string msg);//全局函数 方法体在aaa.cpp中
+void th();
 
+
+#pragma region thread_local
+//使用 thread_local 说明符声明的变量仅可在它在其上创建的线程上访问。 变量在创建线程时创建，并在销毁线程时销毁。 每个线程都有其自己的变量副本。
+//thread_local 说明符可以与 static 或 extern 合并。
+//可以将 thread_local 仅应用于数据声明和定义，thread_local 不能用于函数声明或定义。
+thread_local int x;  // 命名空间下的全局变量
+class X
+{
+	static thread_local std::string s; // 类的static成员变量
+};
+//static thread_local std::string X::s;  // X::s 是需要定义的
+
+void foo()
+{
+	thread_local std::vector<int> v;  // 本地变量
+}
+#pragma endregion
+
+#pragma region load
 void GetPath(string& path)
 {
 	char szModuleFileName[255];		// 全路径名
@@ -63,12 +85,18 @@ void load() {
 		/*在完成调用功能后，不在需要DLL支持，则可以通过FreeLibrary函数释放DLL。*/
 	}
 }
+#pragma endregion
 
+//const	const 类型的对象在程序执行期间不能被修改改变。
+//volatile	修饰符 volatile 告诉编译器不需要优化volatile声明的变量，让程序可以直接从内存中读取变量。对于一般的变量编译器会对变量进行优化，将内存中的变量值放在寄存器中以加快读写效率。
+//restrict	由 restrict 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。
 
 
 
 int main()
 {
+	unsigned x;//默认无符号int
+	unsigned int y;
 
 	int result = t.add(2, 39);
 	cout << result << endl;
@@ -106,6 +134,8 @@ int main()
 
 	//sayHello();
 
+	ShowMessage("fuck u !man");
+
 	load();
 	while (true)
 	{
@@ -114,6 +144,9 @@ int main()
 	return 0;
 }
 
+void th() {
+
+}
 
 
 //将单字节char*转化为宽字节wchar_t*  
