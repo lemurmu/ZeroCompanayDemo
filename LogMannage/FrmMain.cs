@@ -33,7 +33,8 @@ namespace LogMannage
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-
+            //this.Controls.Clear();
+            //this.Controls.Add(new XtraUserControl1());
         }
     }
 

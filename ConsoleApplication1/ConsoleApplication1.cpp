@@ -18,7 +18,9 @@ extern char* UnicodeToAnsi(const wchar_t* szStr);
 typedef int(__stdcall* PUBadd)(int a, int b);
 extern  void ShowMessage(string msg);//全局函数 方法体在aaa.cpp中
 void th();
-
+void th1();
+int Arr2D();
+int Arr3D();
 
 #pragma region thread_local
 //使用 thread_local 说明符声明的变量仅可在它在其上创建的线程上访问。 变量在创建线程时创建，并在销毁线程时销毁。 每个线程都有其自己的变量副本。
@@ -137,6 +139,8 @@ int main()
 	ShowMessage("fuck u !man");
 
 	load();
+
+ 
 	while (true)
 	{
 		Sleep(100);
@@ -144,11 +148,130 @@ int main()
 	return 0;
 }
 
+#pragma region 动态分配内存
+
+//栈：在函数内部声明的所有变量都将占用栈内存。
+//堆：这是程序中未使用的内存，在程序运行时可用于动态分配内存。
+//很多时候，您无法提前预知需要多少内存来存储某个定义变量中的特定信息，所需内存的大小需要在运行时才能确定。
+//在 C++ 中，您可以使用特殊的运算符为给定类型的变量在运行时分配堆内的内存，这会返回所分配的空间地址。这种运算符即 new 运算符。
+//如果您不再需要动态分配的内存空间，可以使用 delete 运算符，删除之前由 new 运算符分配的内存。
 void th() {
+	double* pvalue = NULL; // 初始化为 null 的指针
+	pvalue = new double;   // 为变量请求内存
+
+	if (!(pvalue = new double))//存储区被用完 pvalue就会返回null
+	{
+		cout << "Error: out of memory." << endl;
+		exit(1);
+
+	}
+	//malloc() 函数在 C 语言中就出现了，在 C++ 中仍然存在，但建议尽量不要使用 malloc() 函数。new 与 malloc() 函数相比，其主要的优点是，new 不只是分配了内存，它还创建了对象。
+	//	在任何时候，当您觉得某个已经动态分配内存的变量不再需要使用时，您可以使用 delete 操作符释放它所占用的内存
+	delete pvalue;//删除
 
 }
 
 
+void th1() {
+
+	//数组的动态内存分配
+	//一维数组
+	char* pvalue = NULL;   // 初始化为 null 的指针
+	pvalue = new char[20]; // 为变量请求内存
+
+	// 动态分配,数组长度为 m
+	//int* array = new int[m];
+
+	//释放内存
+//	delete[] array;
+
+}
+
+/// <summary>
+/// 2D数组
+/// </summary>
+/// <returns></returns>
+int Arr2D() {
+	int** p;
+	int i, j;   //p[4][8] 
+	//开始分配4行8列的二维数据   
+	p = new int* [4];
+	for (i = 0; i < 4; i++) {
+		p[i] = new int[8];
+	}
+
+	for (i = 0; i < 4; i++) {
+		for (j = 0; j < 8; j++) {
+			p[i][j] = j * i;
+		}
+	}
+	//打印数据   
+	for (i = 0; i < 4; i++) {
+		for (j = 0; j < 8; j++)
+		{
+			if (j == 0) cout << endl;
+			cout << p[i][j] << "\t";
+		}
+	}
+	//开始释放申请的堆   
+	for (i = 0; i < 4; i++) {
+		delete[] p[i];
+	}
+	delete[] p;
+	return 0;
+}
+
+/// <summary>
+/// 3D数组
+/// </summary>
+/// <returns></returns>
+int Arr3D() {
+	int i, j, k;   // p[2][3][4]
+
+	int*** p;
+	p = new int** [2];
+	for (i = 0; i < 2; i++)
+	{
+		p[i] = new int* [3];
+		for (j = 0; j < 3; j++)
+			p[i][j] = new int[4];
+	}
+
+	//输出 p[i][j][k] 三维数据
+	for (i = 0; i < 2; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			for (k = 0; k < 4; k++)
+			{
+				p[i][j][k] = i + j + k;
+				cout << p[i][j][k] << " ";
+			}
+			cout << endl;
+		}
+		cout << endl;
+	}
+
+	// 释放内存
+	for (i = 0; i < 2; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			delete[] p[i][j];
+		}
+	}
+	for (i = 0; i < 2; i++)
+	{
+		delete[] p[i];
+	}
+	delete[] p;
+	return 0;
+}
+
+#pragma endregion
+
+
+#pragma region 字符转换
 //将单字节char*转化为宽字节wchar_t*  
 wchar_t* AnsiToUnicode(const char* szStr)
 {
@@ -174,6 +297,9 @@ char* UnicodeToAnsi(const wchar_t* szStr)
 	WideCharToMultiByte(CP_ACP, 0, szStr, -1, pResult, nLen, NULL, NULL);
 	return pResult;
 }
+#pragma endregion
+
+
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单

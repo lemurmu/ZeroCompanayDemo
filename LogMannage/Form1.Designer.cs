@@ -60,11 +60,11 @@
             // 
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gridControl.Location = new System.Drawing.Point(0, 55);
+            this.gridControl.Location = new System.Drawing.Point(0, 18);
             this.gridControl.MainView = this.gridView1;
             this.gridControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(925, 539);
+            this.gridControl.Size = new System.Drawing.Size(891, 539);
             this.gridControl.TabIndex = 0;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -179,6 +179,7 @@
             "INFO",
             "DEBUG",
             "ALL"});
+            this.level_cmb.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.level_cmb.Size = new System.Drawing.Size(100, 20);
             this.level_cmb.TabIndex = 3;
             // 
@@ -218,14 +219,14 @@
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "The Bezier";
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Metropolis Dark";
             // 
             // FrmMain
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 594);
+            this.ClientSize = new System.Drawing.Size(891, 557);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
