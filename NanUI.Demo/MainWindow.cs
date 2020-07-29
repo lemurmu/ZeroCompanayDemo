@@ -2,6 +2,7 @@
 using NetDimension.NanUI.Browser;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace NanUI.Demo
 
         public MainWindow()
         {
-            Title = "第一个NanUI应用";
+            Title = "IconFont";
         }
 
         protected override void OnWindowReady(IWebBrowserHandler browserClient)
@@ -42,8 +43,9 @@ namespace NanUI.Demo
 
             style.Width = 1280;
             style.Height = 720;
-            style.Icon = System.Drawing.SystemIcons.WinLogo;
+            style.Icon =new Icon("Apple.ico");
             style.StartPosition = FormStartPosition.CenterScreen;
+            style.WindowState = FormWindowState.Maximized;
         }
     }
 }

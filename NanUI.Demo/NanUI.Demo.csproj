@@ -86,6 +86,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Apple.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\NetDimension.NanUI.Runtime.77.1.18.2\build\NetDimension.NanUI.Runtime.targets" Condition="Exists('..\packages\NetDimension.NanUI.Runtime.77.1.18.2\build\NetDimension.NanUI.Runtime.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
