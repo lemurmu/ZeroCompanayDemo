@@ -75,7 +75,7 @@
             series1.View = swiftPlotSeriesView1;
             this.chart.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chart.Size = new System.Drawing.Size(923, 529);
+            this.chart.Size = new System.Drawing.Size(891, 494);
             this.chart.TabIndex = 0;
             chartTitle1.Alignment = System.Drawing.StringAlignment.Near;
             chartTitle1.Text = "Frequecy Spectrum dB";
@@ -86,10 +86,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 529);
+            this.ClientSize = new System.Drawing.Size(891, 494);
             this.Controls.Add(this.chart);
             this.Name = "FrmMain";
             this.Text = "频谱图";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(strip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).EndInit();

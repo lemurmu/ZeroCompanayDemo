@@ -1,4 +1,5 @@
-﻿using Autofac.Configuration.Test.test3;
+﻿#define DEBUG
+using Autofac.Configuration.Test.test3;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -15,6 +16,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace MainCos
 {
     class Program
@@ -22,8 +24,10 @@ namespace MainCos
         static object syncObj = new object();
         static void Main(string[] args)
         {
-            testfloat();
+           
             Console.ForegroundColor = ConsoleColor.Cyan;
+            testfloat();
+            Debug();
 
             int len = args.Length;
             Console.WriteLine($"Main函数的参数长度是{len}");
@@ -257,7 +261,7 @@ namespace MainCos
             }
         }
 
-
+        [Conditional("DEBUG")]
         public static void testfloat()
         {
             Console.WriteLine(1e6);//1*10的6次方
@@ -265,6 +269,12 @@ namespace MainCos
             Console.WriteLine(2e7);
             Console.WriteLine(2e2);
             Console.WriteLine(12.56/1e6);
+        }
+
+        [Conditional("DEBUG")]
+        public static void Debug()
+        {
+            Console.WriteLine("测试DEBUG.............");
         }
     }
 }
