@@ -69,9 +69,9 @@
             this.chart.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chart.Location = new System.Drawing.Point(0, 0);
             this.chart.Name = "chart";
+            this.chart.PaletteName = "Yellow Orange";
             series1.Name = "Frequecy";
             swiftPlotSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            swiftPlotSeriesView1.LineStyle.Thickness = 2;
             series1.View = swiftPlotSeriesView1;
             this.chart.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};

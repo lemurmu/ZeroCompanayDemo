@@ -21,7 +21,14 @@ namespace FrequencyChart
         public FrmMain()
         {
             InitializeComponent();
+            // Init();
+            this.Controls.Clear();
+            this.Controls.Add(new UIFrequecyChart { Parent = this, Dock = DockStyle.Fill });
+        }
 
+
+        void Init()
+        {
             using (Stream stream = ReadFile("Data\\sound.bin"))
             {
                 Debug.Assert(stream.Length < int.MaxValue);
@@ -32,25 +39,25 @@ namespace FrequencyChart
                 short[] sampleBuffer = new short[halfStreamLength];
                 System.Buffer.BlockCopy(buffer, 0, sampleBuffer, 0, streamLength); //do not delete System - avoid VB issues
                 int halfBufferLength = (int)(sampleBuffer.Length / 2);             //Avoid VB issues
-                SeriesPoint[] leftChannelPoints = new SeriesPoint[halfBufferLength];
-                SeriesPoint[] rightChannelPoints = new SeriesPoint[halfBufferLength];
+                //SeriesPoint[] leftChannelPoints = new SeriesPoint[halfBufferLength];
+                //SeriesPoint[] rightChannelPoints = new SeriesPoint[halfBufferLength];
                 this.averageChannelNormalized = new double[halfBufferLength];
                 for (int i = 1, k = 0; i < sampleBuffer.Length; i += 2, k++)
                 {
                     double seconds = (i / 2) * (1.0 / SamplingFrequency);
                     double normalizedValueOfLeftChannel = sampleBuffer[i] / sixteenBitSampleMaxVale;
                     double normalizedValueOfRightChannel = sampleBuffer[i - 1] / sixteenBitSampleMaxVale;
-                    leftChannelPoints[k] = new SeriesPoint(TimeSpan.FromSeconds(seconds), normalizedValueOfLeftChannel);
-                    rightChannelPoints[k] = new SeriesPoint(TimeSpan.FromSeconds(seconds), normalizedValueOfRightChannel);
+                    //leftChannelPoints[k] = new SeriesPoint(TimeSpan.FromSeconds(seconds), normalizedValueOfLeftChannel);
+                    //rightChannelPoints[k] = new SeriesPoint(TimeSpan.FromSeconds(seconds), normalizedValueOfRightChannel);
                     this.averageChannelNormalized[k] = (normalizedValueOfLeftChannel + normalizedValueOfRightChannel) / 2d;
                 }
-              //  Series leftChannelSeries = this.chart.Series[0];
-              //  leftChannelSeries.Points.AddRange(leftChannelPoints);
-              //  Series rightChannelSeries = this.chart.Series[1];
-             //   rightChannelSeries.Points.AddRange(rightChannelPoints);
-                this.realSpectrum = new double[DefaultFrameLength];
-                this.imaginarySpectrum = new double[DefaultFrameLength];
-                this.zeroSpectrum = new double[DefaultFrameLength];
+                //  Series leftChannelSeries = this.chart.Series[0];
+                //  leftChannelSeries.Points.AddRange(leftChannelPoints);
+                //  Series rightChannelSeries = this.chart.Series[1];
+                //   rightChannelSeries.Points.AddRange(rightChannelPoints);
+                realSpectrum = new double[DefaultFrameLength];
+                imaginarySpectrum = new double[DefaultFrameLength];
+                zeroSpectrum = new double[DefaultFrameLength];
             }
             int halfOfFrame = DefaultFrameLength / 2;
             double frequencyStep = SamplingFrequency / 2d / halfOfFrame;
@@ -75,9 +82,9 @@ namespace FrequencyChart
         int frameEndIndex = DefaultFrameLength - 1;
         Timer timer = new Timer();
         double[] averageChannelNormalized;
-        readonly double[] realSpectrum;
-        readonly double[] imaginarySpectrum;
-        readonly double[] zeroSpectrum;
+        double[] realSpectrum;
+        double[] imaginarySpectrum;
+        double[] zeroSpectrum;
         DateTime last;
 
         void Timer_Tick(object sender, EventArgs e)
