@@ -26,6 +26,7 @@ namespace SuperSocket
 
             //注意!!!!!!!!!!!!!使用自定义命令一定要取消绑定这个数据接收事件！！！！！！！！
             //base.NewRequestReceived += NewDataArrived;
+            
         }
 
         /// <summary>

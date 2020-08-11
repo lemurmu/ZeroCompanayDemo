@@ -34,7 +34,6 @@
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.WaterfallSeriesView waterfallSeriesView1 = new DevExpress.XtraCharts.WaterfallSeriesView();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UIFrequecyChart));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
@@ -56,9 +55,8 @@
             this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
             this.panel2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.plot_btn = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
@@ -87,14 +85,11 @@
             ((System.ComponentModel.ISupportInitialize)(waterfallSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.pictureEdit1);
             this.layoutControl1.Controls.Add(this.chartControl2);
             this.layoutControl1.Controls.Add(this.chartControl1);
             this.layoutControl1.Controls.Add(this.comboBoxEdit1);
@@ -104,11 +99,12 @@
             this.layoutControl1.Controls.Add(this.checkEdit4);
             this.layoutControl1.Controls.Add(this.checkEdit5);
             this.layoutControl1.Controls.Add(this.checkEdit6);
+            this.layoutControl1.Controls.Add(this.plot_btn);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(987, 602);
+            this.layoutControl1.Size = new System.Drawing.Size(843, 602);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -205,11 +201,10 @@
             this.layoutControlItem7,
             this.panel1,
             this.panel2,
-            this.emptySpaceItem1,
             this.layoutControlItem8,
-            this.emptySpaceItem2});
+            this.emptySpaceItem1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(987, 602);
+            this.Root.Size = new System.Drawing.Size(843, 602);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -309,7 +304,7 @@
             series2.View = swiftPlotSeriesView1;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series2};
-            this.chartControl1.Size = new System.Drawing.Size(661, 253);
+            this.chartControl1.Size = new System.Drawing.Size(819, 253);
             this.chartControl1.TabIndex = 11;
             // 
             // panel1
@@ -317,7 +312,7 @@
             this.panel1.Control = this.chartControl1;
             this.panel1.Location = new System.Drawing.Point(0, 26);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(665, 257);
+            this.panel1.Size = new System.Drawing.Size(823, 257);
             this.panel1.TextSize = new System.Drawing.Size(0, 0);
             this.panel1.TextVisible = false;
             // 
@@ -335,7 +330,7 @@
             series1.View = waterfallSeriesView1;
             this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chartControl2.Size = new System.Drawing.Size(661, 295);
+            this.chartControl2.Size = new System.Drawing.Size(819, 295);
             this.chartControl2.TabIndex = 12;
             // 
             // panel2
@@ -343,44 +338,36 @@
             this.panel2.Control = this.chartControl2;
             this.panel2.Location = new System.Drawing.Point(0, 283);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(665, 299);
+            this.panel2.Size = new System.Drawing.Size(823, 299);
             this.panel2.TextSize = new System.Drawing.Size(0, 0);
             this.panel2.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(488, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(541, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(177, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(282, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // pictureEdit1
+            // plot_btn
             // 
-            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(677, 12);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(298, 229);
-            this.pictureEdit1.StyleController = this.layoutControl1;
-            this.pictureEdit1.TabIndex = 13;
+            this.plot_btn.Location = new System.Drawing.Point(500, 12);
+            this.plot_btn.Name = "plot_btn";
+            this.plot_btn.Size = new System.Drawing.Size(49, 22);
+            this.plot_btn.StyleController = this.layoutControl1;
+            this.plot_btn.TabIndex = 13;
+            this.plot_btn.Text = "绘制";
+            this.plot_btn.Click += new System.EventHandler(this.plot_btn_Click);
             // 
             // layoutControlItem8
             // 
-            this.layoutControlItem8.Control = this.pictureEdit1;
-            this.layoutControlItem8.Location = new System.Drawing.Point(665, 0);
+            this.layoutControlItem8.Control = this.plot_btn;
+            this.layoutControlItem8.Location = new System.Drawing.Point(488, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(302, 233);
+            this.layoutControlItem8.Size = new System.Drawing.Size(53, 26);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(665, 233);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(302, 349);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // UIFrequecyChart
             // 
@@ -388,7 +375,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Name = "UIFrequecyChart";
-            this.Size = new System.Drawing.Size(987, 602);
+            this.Size = new System.Drawing.Size(843, 602);
             this.Load += new System.EventHandler(this.UIFrequecyChart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -418,9 +405,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -448,8 +433,7 @@
         private DevExpress.XtraCharts.ChartControl chartControl2;
         private DevExpress.XtraLayout.LayoutControlItem panel2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.SimpleButton plot_btn;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
     }
 }

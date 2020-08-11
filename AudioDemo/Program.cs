@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using DevExpress.UserSkins;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
 using System.IO;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace FrequencyChart
+namespace AudioDemo
 {
-    static class Program
+    class Program
     {
 
         const int byteSample = 2;
@@ -23,50 +21,51 @@ namespace FrequencyChart
 
         //0x18 4byte 0000AC44   44100采样率
 
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+
+
+        static void Main(string[] args)
         {
-            if (!File.Exists("data.txt"))
+
+            byte[] length = new byte[4];
+
+            FileStream fs = new FileStream("test.wav", FileMode.Open, FileAccess.Read);
+
+            fs.Position = dataPosition;
+
+            fs.Read(length, 0, 4);
+
+            byte[] content = new byte[getHexToInt(length)];
+
+            string[] sample = new string[content.Length / byteSample];
+
+            fs.Read(content, 0, content.Length);
+
+            getHex(content);
+
+            sample = getSample(content);
+
+            StreamWriter sw = new StreamWriter("data.txt", true, Encoding.Default);
+
+            foreach (string i in sample)
+
             {
-                byte[] length = new byte[4];
 
-                FileStream fs = new FileStream("Audio\\test.wav", FileMode.Open, FileAccess.Read);
+                sw.Flush();
 
-                fs.Position = dataPosition;
+                sw.WriteLine(i);
 
-                fs.Read(length, 0, 4);
-
-                byte[] content = new byte[getHexToInt(length)];
-
-                string[] sample = new string[content.Length / byteSample];
-
-                fs.Read(content, 0, content.Length);
-
-                getHex(content);
-
-                sample = getSample(content);
-                StreamWriter sw = new StreamWriter("data.txt", true, Encoding.Default);
-
-                foreach (string i in sample)
-                {
-
-                    sw.Flush();
-
-                    sw.WriteLine(i);
-
-                }
-
-                sw.Close();
             }
-           
+
+            sw.Close();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMain());
+
         }
+
+
+
         static int getHexToInt(byte[] x)
 
         {
@@ -137,5 +136,3 @@ namespace FrequencyChart
 
     }
 }
-
-
