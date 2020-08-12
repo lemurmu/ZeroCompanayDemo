@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v20.1" />
     <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -104,6 +107,17 @@
     <None Include="Data\sound.bin">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Audio\test1.wav" />
+    <Content Include="Audio\test2.wav" />
+    <Content Include="Audio\test3.wav" />
+    <Content Include="Audio\test4.wav" />
+    <Content Include="Audio\test5.wav" />
+    <Content Include="Honey\1.wav" />
+    <Content Include="Honey\2.wav" />
+    <Content Include="Honey\3.wav" />
+    <Content Include="Honey\4.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

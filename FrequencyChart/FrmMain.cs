@@ -114,6 +114,11 @@ namespace FrequencyChart
             currentFrameStrip.MaxLimit.AxisValue = TimeSpan.MaxValue; //avoiding errors on frame jumping to begin
             currentFrameStrip.MinLimit.AxisValue = TimeSpan.FromSeconds(1d / SamplingFrequency * this.frameStartIndex);
             currentFrameStrip.MaxLimit.AxisValue = TimeSpan.FromSeconds(1d / SamplingFrequency * this.frameEndIndex);
+
+            double va = 1d / SamplingFrequency * this.frameStartIndex;
+            Console.WriteLine("start:"+va);
+            va = 1d / SamplingFrequency * this.frameEndIndex;
+            Console.WriteLine("end:"+va);
         }
         void RecalculateFrequencySpectrum()
         {
