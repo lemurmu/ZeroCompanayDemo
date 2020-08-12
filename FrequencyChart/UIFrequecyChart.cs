@@ -25,6 +25,8 @@ namespace FrequencyChart
             //Plot();
         }
 
+        readonly string[] files = { "Audio\\test1.wav" , "Audio\\test2.wav" , "Audio\\test3.wav" , "Audio\\test4.wav" , "Audio\\test5.wav" };
+
         List<double> data;
         bool leftStatus = true;
         const int byteSample = 2;
@@ -36,40 +38,46 @@ namespace FrequencyChart
         //0x22 2byte 0010  16位
 
         //0x18 4byte 0000AC44   44100采样率
+        Random rd = new Random();
         async void Plot()
         {
             this.chartControl1.Series[0].Points.Clear();
-            data = await Task.Run(() =>
-                 {
-                     List<double> list = new List<double>();
-
-                     string[] data = LoadWav("Audio\\test1.wav");
-                     int m = 0;
-
-                     for (int i = 0; i < data.Length; i++)
-                     {
-                         if (leftStatus)
-                         {
-                             if (m % 2 == 0)
-                                 list.Add(double.Parse(data[i]));
-                         }
-                         else
-                         {
-                             if (m % 2 != 0)
-                                 list.Add(double.Parse(data[i]));
-
-                         }
-                         m++;
-                     }
-                     return list;
-
-                 });
+            data = await GetData();
 
             for (int i = 0; i < data.Count; i++)
             {
                 this.chartControl1.Series[0].Points.Add(new SeriesPoint(i, data[i]));
             }
 
+        }
+
+        Task<List<double>> GetData()
+        {
+            return Task.Run(() =>
+            {
+                List<double> list = new List<double>();
+                int index = rd.Next(0, 5);
+                string[] data = LoadWav(files[index]);
+                int m = 0;
+
+                for (int i = 0; i < data.Length; i++)
+                {
+                    if (leftStatus)
+                    {
+                        if (m % 2 == 0)
+                            list.Add(double.Parse(data[i]));
+                    }
+                    else
+                    {
+                        if (m % 2 != 0)
+                            list.Add(double.Parse(data[i]));
+
+                    }
+                    m++;
+                }
+                return list;
+
+            });
         }
 
         private void UIFrequecyChart_Load(object sender, EventArgs e)
@@ -131,6 +139,7 @@ namespace FrequencyChart
         private void plot_btn_Click(object sender, EventArgs e)
         {
             Plot();
+
         }
 
 
