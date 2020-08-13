@@ -28,27 +28,32 @@ namespace FrequencyChart
         readonly string[] files = { "Audio\\test1.wav", "Audio\\test2.wav", "Audio\\test3.wav", "Audio\\test4.wav", "Audio\\test5.wav" };
         readonly string[] Honeyfiles = { "Honey\\1.wav", "Honey\\2.wav", "Honey\\3.wav", "Honey\\4.wav", "Honey\\2.wav" };
         readonly double[] nums = new double[] { 0.1235468, -0.14500 };
+        readonly string receiverFile = "ReceiverData\\";
+        readonly Dictionary<string, List<double>> receiverDict = new Dictionary<string, List<double>>();
 
-        const int SamplingFrequency = 1300; //Hz
-        const int DefaultFrameLength = 2048;
-        const double sixteenBitSampleMaxVale = short.MaxValue;
-        const double MinDb = -500d;
+        const int receiverFileCount = 1200;
 
-        int frameStartIndex = 0;
-        int frameEndIndex = DefaultFrameLength - 1;
-
+        int fileIndex = 1;
         bool leftStatus = true;
         const int byteSample = 2;
-        DateTime last;
         const int dataPosition = 40;
         Random rd = new Random();
         List<double> data;
 
-        private void Init()
+        private async void Init()
         {
+            SwiftPlotDiagram diagram = (SwiftPlotDiagram)(this.chartControl1.Diagram);
+            diagram.AxisY.WholeRange.SetMinMaxValues(-50, 50);
+            diagram.AxisX.WholeRange.SetMinMaxValues(1, 5981);
+
+            for (int k = 0; k < receiverFileCount; k++)
+            {
+                string filename = $"{receiverFile}{k + 1}_data.txt";
+                List<double> data = await GetReceiverData(filename);
+                receiverDict.Add(filename, data);
+            }
             timer1.Enabled = true;
-            timer1.Interval = 100;
-            this.last = DateTime.Now;
+            timer1.Interval = 1;
         }
         async void Plot()
         {
@@ -72,18 +77,24 @@ namespace FrequencyChart
             this.chartControl1.Series[0].Points.AddRange(seriesPoints);
         }
 
-        void MoveLine(int offset)
+        void MoveStrips()
         {
-            int newEndIndex = this.frameEndIndex + offset;
-            this.frameStartIndex = 0;
-            this.frameEndIndex = DefaultFrameLength;
-            Strip currentFrameStrip = ((SwiftPlotDiagram)this.chartControl1.Diagram).AxisX.Strips[0]; //test
+            Diagram diagram = this.chartControl1.Diagram;
+            Strip currentFrameStrip = null;
+            if (diagram is SwiftPlotDiagram)
+            {
+                currentFrameStrip = ((SwiftPlotDiagram)diagram).AxisX.Strips[0]; //test
+            }
+            else if (diagram is XYDiagram)
+            {
+                currentFrameStrip = ((XYDiagram)diagram).AxisX.Strips[0]; //test
+            }
+
             currentFrameStrip.MinLimit.AxisValue = TimeSpan.MinValue;
             currentFrameStrip.MaxLimit.AxisValue = TimeSpan.MaxValue; //avoiding errors on frame jumping to begin
-            currentFrameStrip.MinLimit.AxisValue = TimeSpan.FromSeconds(0.28952);
-            currentFrameStrip.MaxLimit.AxisValue = TimeSpan.FromSeconds(0.524852);
+            currentFrameStrip.MinLimit.AxisValue = TimeSpan.FromSeconds(0.08952);
+            currentFrameStrip.MaxLimit.AxisValue = TimeSpan.FromSeconds(0.324852);
         }
-
         Task<List<double>> GetData()
         {
             return Task.Run(() =>
@@ -137,21 +148,27 @@ namespace FrequencyChart
             });
         }
 
+        Task<List<double>> GetReceiverData(string fileName)
+        {
+            return Task.Run(() =>
+            {
+                List<double> list = new List<double>();
+                string str = string.Empty;
+                using (StreamReader sr = new StreamReader(fileName))
+                {
+                    while (!string.IsNullOrEmpty(str = sr.ReadLine()))
+                    {
+                        double data = double.Parse(str);
+                        list.Add(data);
+                    }
+                }
+                return list;
+            });
+        }
+
         private void UIFrequecyChart_Load(object sender, EventArgs e)
         {
             panel2.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-
-            //Graphics gp = Graphics.FromImage(pictureEdit1.Image); ;
-            //Rectangle rect = new Rectangle(30, 40, 400, 200);
-            //LinearGradientBrush lb = new LinearGradientBrush(rect, Color.Red, Color.Green, LinearGradientMode.Horizontal);
-            //ColorBlend cb = new ColorBlend(4);
-            //Color[] colorArray = new Color[] { Color.Red, Color.Green, Color.Blue, Color.Yellow };
-            //float[] positionArray = new float[] { 0f, 0.33f, 0.67f, 1f };
-            //cb.Colors = colorArray;
-            //cb.Positions = positionArray;
-            //lb.InterpolationColors = cb;
-            //gp.FillRectangle(lb, rect);
-            //gp.Dispose();
         }
 
         private void checkEdit1_CheckStateChanged(object sender, EventArgs e)
@@ -193,15 +210,6 @@ namespace FrequencyChart
             }
         }
 
-        private void plot_btn_Click(object sender, EventArgs e)
-        {
-            Plot();
-            DateTime current = DateTime.Now;
-            double span = (current - this.last).TotalSeconds;
-            this.last = current;
-            MoveLine((int)(span * SamplingFrequency));
-        }
-
 
         string[] LoadWav(string fileName)
         {
@@ -217,9 +225,6 @@ namespace FrequencyChart
             return sample;
         }
 
-
-
-
         static void GetHex(byte[] x)
         {
             byte tmp;
@@ -229,8 +234,6 @@ namespace FrequencyChart
                 x[i] = tmp;
             }
         }
-
-
 
         static string[] GetSample(byte[] x)
         {
@@ -248,11 +251,34 @@ namespace FrequencyChart
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            Plot();
-            DateTime current = DateTime.Now;
-            double span = (current - this.last).TotalSeconds;
-            this.last = current;
-            MoveLine((int)(span * SamplingFrequency));
+            // Plot();
+            PloatReceiverData();
+            MoveStrips();
+        }
+
+        void PloatReceiverData()
+        {
+            string filename = $"{receiverFile}{fileIndex}_data.txt";
+            List<double> data = receiverDict[filename];
+
+            SeriesPoint[] seriesPoints = new SeriesPoint[data.Count];
+            for (int i = 0; i < data.Count; i++)
+            {
+                seriesPoints[i] = new SeriesPoint(i, data[i]);
+            }
+            this.chartControl1.Series[0].Points.Clear();
+            this.chartControl1.Series[0].Points.AddRange(seriesPoints);
+
+
+            if (fileIndex == receiverFileCount)
+            {
+                fileIndex = 1;
+            }
+            else
+            {
+                fileIndex++;
+            }
+
         }
     }
 }

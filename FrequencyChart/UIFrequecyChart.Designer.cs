@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraCharts.XYDiagram xyDiagram3 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.WaterfallSeriesView waterfallSeriesView3 = new DevExpress.XtraCharts.WaterfallSeriesView();
-            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram3 = new DevExpress.XtraCharts.SwiftPlotDiagram();
-            DevExpress.XtraCharts.Strip strip3 = new DevExpress.XtraCharts.Strip();
-            DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView3 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.WaterfallSeriesView waterfallSeriesView1 = new DevExpress.XtraCharts.WaterfallSeriesView();
+            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram1 = new DevExpress.XtraCharts.SwiftPlotDiagram();
+            DevExpress.XtraCharts.Strip strip1 = new DevExpress.XtraCharts.Strip();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView1 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
@@ -46,7 +46,6 @@
             this.checkEdit4 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit5 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit6 = new DevExpress.XtraEditors.CheckEdit();
-            this.plot_btn = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -57,20 +56,19 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panel1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panel2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(waterfallSeriesView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(waterfallSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(strip3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(strip1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
@@ -88,7 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +100,6 @@
             this.layoutControl1.Controls.Add(this.checkEdit4);
             this.layoutControl1.Controls.Add(this.checkEdit5);
             this.layoutControl1.Controls.Add(this.checkEdit6);
-            this.layoutControl1.Controls.Add(this.plot_btn);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -114,47 +110,47 @@
             // 
             // chartControl2
             // 
-            xyDiagram3.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram3.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl2.Diagram = xyDiagram3;
+            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControl2.Diagram = xyDiagram1;
             this.chartControl2.Legend.Name = "Default Legend";
             this.chartControl2.Location = new System.Drawing.Point(12, 295);
             this.chartControl2.Name = "chartControl2";
             this.chartControl2.PaletteName = "Green";
-            series5.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
-            series5.Name = "water";
-            series5.View = waterfallSeriesView3;
+            series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
+            series1.Name = "water";
+            series1.View = waterfallSeriesView1;
             this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series5};
+        series1};
             this.chartControl2.Size = new System.Drawing.Size(819, 295);
             this.chartControl2.TabIndex = 12;
             // 
             // chartControl1
             // 
-            swiftPlotDiagram3.AxisX.GridLines.MinorVisible = true;
-            swiftPlotDiagram3.AxisX.GridLines.Visible = true;
-            strip3.MaxLimit.AxisValueSerializable = "1";
-            strip3.MinLimit.AxisValueSerializable = "0";
-            strip3.Name = "Strip 1";
-            swiftPlotDiagram3.AxisX.Strips.AddRange(new DevExpress.XtraCharts.Strip[] {
-            strip3});
-            swiftPlotDiagram3.AxisX.Title.Text = "freq";
-            swiftPlotDiagram3.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram3.AxisX.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram3.AxisY.GridLines.MinorVisible = true;
-            swiftPlotDiagram3.AxisY.Title.Text = "db";
-            swiftPlotDiagram3.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            swiftPlotDiagram3.AxisY.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram3.EnableAxisXZooming = true;
-            this.chartControl1.Diagram = swiftPlotDiagram3;
+            swiftPlotDiagram1.AxisX.GridLines.MinorVisible = true;
+            swiftPlotDiagram1.AxisX.GridLines.Visible = true;
+            strip1.MaxLimit.AxisValueSerializable = "1";
+            strip1.MinLimit.AxisValueSerializable = "0";
+            strip1.Name = "Strip 1";
+            swiftPlotDiagram1.AxisX.Strips.AddRange(new DevExpress.XtraCharts.Strip[] {
+            strip1});
+            swiftPlotDiagram1.AxisX.Title.Text = "freq";
+            swiftPlotDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram1.AxisY.GridLines.MinorVisible = true;
+            swiftPlotDiagram1.AxisY.Title.Text = "db";
+            swiftPlotDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram1.EnableAxisXZooming = true;
+            this.chartControl1.Diagram = swiftPlotDiagram1;
             this.chartControl1.Legend.Name = "Default Legend";
             this.chartControl1.Location = new System.Drawing.Point(12, 38);
             this.chartControl1.Name = "chartControl1";
-            series6.Name = "freq";
-            swiftPlotSeriesView3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            series6.View = swiftPlotSeriesView3;
+            series2.Name = "freq";
+            swiftPlotSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            series2.View = swiftPlotSeriesView1;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series6};
+        series2};
             this.chartControl1.Size = new System.Drawing.Size(819, 253);
             this.chartControl1.TabIndex = 11;
             // 
@@ -237,16 +233,6 @@
             this.checkEdit6.StyleController = this.layoutControl1;
             this.checkEdit6.TabIndex = 10;
             // 
-            // plot_btn
-            // 
-            this.plot_btn.Location = new System.Drawing.Point(500, 12);
-            this.plot_btn.Name = "plot_btn";
-            this.plot_btn.Size = new System.Drawing.Size(49, 22);
-            this.plot_btn.StyleController = this.layoutControl1;
-            this.plot_btn.TabIndex = 13;
-            this.plot_btn.Text = "绘制";
-            this.plot_btn.Click += new System.EventHandler(this.plot_btn_Click);
-            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -261,7 +247,6 @@
             this.layoutControlItem7,
             this.panel1,
             this.panel2,
-            this.layoutControlItem8,
             this.emptySpaceItem1});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(843, 602);
@@ -369,24 +354,12 @@
             this.panel2.TextSize = new System.Drawing.Size(0, 0);
             this.panel2.TextVisible = false;
             // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.plot_btn;
-            this.layoutControlItem8.Location = new System.Drawing.Point(488, 0);
-            this.layoutControlItem8.MaxSize = new System.Drawing.Size(53, 26);
-            this.layoutControlItem8.MinSize = new System.Drawing.Size(53, 26);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(53, 26);
-            this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
-            // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(541, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(488, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(282, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(335, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // timer1
@@ -404,14 +377,14 @@
             this.Load += new System.EventHandler(this.UIFrequecyChart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(waterfallSeriesView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(waterfallSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(strip3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(strip1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
@@ -430,7 +403,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
@@ -459,8 +431,6 @@
         private DevExpress.XtraCharts.ChartControl chartControl2;
         private DevExpress.XtraLayout.LayoutControlItem panel2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraEditors.SimpleButton plot_btn;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private System.Windows.Forms.Timer timer1;
     }
 }
