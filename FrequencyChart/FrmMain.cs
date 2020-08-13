@@ -21,9 +21,9 @@ namespace FrequencyChart
         public FrmMain()
         {
             InitializeComponent();
-            // Init();
-            this.Controls.Clear();
-            this.Controls.Add(new UIFrequecyChart { Parent = this, Dock = DockStyle.Fill });
+             Init();
+          //  this.Controls.Clear();
+           // this.Controls.Add(new UIFrequecyChart { Parent = this, Dock = DockStyle.Fill });
         }
 
 

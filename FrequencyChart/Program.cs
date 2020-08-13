@@ -29,40 +29,6 @@ namespace FrequencyChart
         [STAThread]
         static void Main()
         {
-            if (!File.Exists("data.txt"))
-            {
-                byte[] length = new byte[4];
-
-                FileStream fs = new FileStream("Audio\\test.wav", FileMode.Open, FileAccess.Read);
-
-                fs.Position = dataPosition;
-
-                fs.Read(length, 0, 4);
-
-                byte[] content = new byte[getHexToInt(length)];
-
-                string[] sample = new string[content.Length / byteSample];
-
-                fs.Read(content, 0, content.Length);
-
-                getHex(content);
-
-                sample = getSample(content);
-                StreamWriter sw = new StreamWriter("data.txt", true, Encoding.Default);
-
-                foreach (string i in sample)
-                {
-
-                    sw.Flush();
-
-                    sw.WriteLine(i);
-
-                }
-
-                sw.Close();
-            }
-           
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMain());
