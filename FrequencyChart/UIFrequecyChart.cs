@@ -14,6 +14,7 @@ using DevExpress.XtraPrinting;
 using System.Threading;
 using System.IO;
 using DevExpress.Utils.Extensions;
+using DevExpress.XtraSplashScreen;
 
 namespace FrequencyChart
 {
@@ -22,7 +23,7 @@ namespace FrequencyChart
         public UIFrequecyChart()
         {
             InitializeComponent();
-            Init();
+           // Init();
         }
 
         readonly string[] files = { "Audio\\test1.wav", "Audio\\test2.wav", "Audio\\test3.wav", "Audio\\test4.wav", "Audio\\test5.wav" };
@@ -45,13 +46,18 @@ namespace FrequencyChart
             SwiftPlotDiagram diagram = (SwiftPlotDiagram)(this.chartControl1.Diagram);
             diagram.AxisY.WholeRange.SetMinMaxValues(-50, 50);
             diagram.AxisX.WholeRange.SetMinMaxValues(1, 5981);
+            diagram.AxisY.WholeRange.AlwaysShowZeroLevel = false;
+            panel2.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
 
+            IOverlaySplashScreenHandle handle= SplashScreenManager.ShowOverlayForm(this);
             for (int k = 0; k < receiverFileCount; k++)
             {
                 string filename = $"{receiverFile}{k + 1}_data.txt";
                 List<double> data = await GetReceiverData(filename);
                 receiverDict.Add(filename, data);
             }
+            SplashScreenManager.CloseOverlayForm(handle);
+            
             timer1.Enabled = true;
             timer1.Interval = 1;
         }
@@ -83,15 +89,16 @@ namespace FrequencyChart
             Strip currentFrameStrip = null;
             if (diagram is SwiftPlotDiagram)
             {
-                currentFrameStrip = ((SwiftPlotDiagram)diagram).AxisX.Strips[0]; //test
+                currentFrameStrip = ((SwiftPlotDiagram)diagram).AxisX.Strips[0];
             }
             else if (diagram is XYDiagram)
             {
-                currentFrameStrip = ((XYDiagram)diagram).AxisX.Strips[0]; //test
+                currentFrameStrip = ((XYDiagram)diagram).AxisX.Strips[0]; 
             }
 
+            if (currentFrameStrip == null) { return; }
             currentFrameStrip.MinLimit.AxisValue = TimeSpan.MinValue;
-            currentFrameStrip.MaxLimit.AxisValue = TimeSpan.MaxValue; //avoiding errors on frame jumping to begin
+            currentFrameStrip.MaxLimit.AxisValue = TimeSpan.MaxValue; 
             currentFrameStrip.MinLimit.AxisValue = TimeSpan.FromSeconds(0.08952);
             currentFrameStrip.MaxLimit.AxisValue = TimeSpan.FromSeconds(0.324852);
         }
@@ -168,7 +175,8 @@ namespace FrequencyChart
 
         private void UIFrequecyChart_Load(object sender, EventArgs e)
         {
-            panel2.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            Init();
+           
         }
 
         private void checkEdit1_CheckStateChanged(object sender, EventArgs e)
@@ -279,6 +287,11 @@ namespace FrequencyChart
                 fileIndex++;
             }
 
+        }
+
+        private void checkEdit5_CheckedChanged(object sender, EventArgs e)
+        {
+            this.chartControl1.Series[0].Visible = checkEdit5.Checked;
         }
     }
 }

@@ -132,18 +132,23 @@
             strip1.MaxLimit.AxisValueSerializable = "1";
             strip1.MinLimit.AxisValueSerializable = "0";
             strip1.Name = "Strip 1";
+            strip1.ShowInLegend = false;
             swiftPlotDiagram1.AxisX.Strips.AddRange(new DevExpress.XtraCharts.Strip[] {
             strip1});
             swiftPlotDiagram1.AxisX.Title.Text = "freq";
             swiftPlotDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram1.AxisX.Visibility = DevExpress.Utils.DefaultBoolean.True;
             swiftPlotDiagram1.AxisX.VisibleInPanesSerializable = "-1";
             swiftPlotDiagram1.AxisY.GridLines.MinorVisible = true;
+            swiftPlotDiagram1.AxisY.Title.MaxLineCount = 4;
             swiftPlotDiagram1.AxisY.Title.Text = "db";
             swiftPlotDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            swiftPlotDiagram1.AxisY.Visibility = DevExpress.Utils.DefaultBoolean.True;
             swiftPlotDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             swiftPlotDiagram1.EnableAxisXZooming = true;
             this.chartControl1.Diagram = swiftPlotDiagram1;
             this.chartControl1.Legend.Name = "Default Legend";
+            this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chartControl1.Location = new System.Drawing.Point(12, 38);
             this.chartControl1.Name = "chartControl1";
             series2.Name = "freq";
@@ -215,6 +220,7 @@
             // 
             // checkEdit5
             // 
+            this.checkEdit5.EditValue = true;
             this.checkEdit5.Location = new System.Drawing.Point(366, 12);
             this.checkEdit5.Name = "checkEdit5";
             this.checkEdit5.Properties.Caption = "实时值";
@@ -222,6 +228,7 @@
             this.checkEdit5.Size = new System.Drawing.Size(63, 22);
             this.checkEdit5.StyleController = this.layoutControl1;
             this.checkEdit5.TabIndex = 9;
+            this.checkEdit5.CheckedChanged += new System.EventHandler(this.checkEdit5_CheckedChanged);
             // 
             // checkEdit6
             // 
