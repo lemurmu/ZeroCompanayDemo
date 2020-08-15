@@ -36,7 +36,7 @@
             DevExpress.XtraCharts.Strip strip1 = new DevExpress.XtraCharts.Strip();
             DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView1 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
-            DevExpress.XtraCharts.AverageTrueRange averageTrueRange1 = new DevExpress.XtraCharts.AverageTrueRange();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UIFrequecyChart));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
@@ -59,8 +59,8 @@
             this.panel1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panel2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
@@ -72,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(strip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(averageTrueRange1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
@@ -137,7 +136,6 @@
             // 
             // chartControl1
             // 
-            swiftPlotDiagram1.AxisX.GridLines.MinorVisible = true;
             swiftPlotDiagram1.AxisX.GridLines.Visible = true;
             strip1.MaxLimit.AxisValueSerializable = "1";
             strip1.MinLimit.AxisValueSerializable = "0";
@@ -149,7 +147,6 @@
             swiftPlotDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             swiftPlotDiagram1.AxisX.Visibility = DevExpress.Utils.DefaultBoolean.True;
             swiftPlotDiagram1.AxisX.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram1.AxisY.GridLines.MinorVisible = true;
             swiftPlotDiagram1.AxisY.Title.MaxLineCount = 4;
             swiftPlotDiagram1.AxisY.Title.Text = "db";
             swiftPlotDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
@@ -157,19 +154,13 @@
             swiftPlotDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             swiftPlotDiagram1.EnableAxisXZooming = true;
             this.chartControl1.Diagram = swiftPlotDiagram1;
-            this.chartControl1.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBoxAndMarker;
             this.chartControl1.Legend.MarkerOffset = 1;
             this.chartControl1.Legend.Name = "Default Legend";
-            this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartControl1.Location = new System.Drawing.Point(12, 38);
             this.chartControl1.Name = "chartControl1";
             series2.Name = "freq";
             swiftPlotSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            averageTrueRange1.Name = "Average True Range 1";
-            averageTrueRange1.PointsCount = 5900;
-            averageTrueRange1.ShowInLegend = true;
-            swiftPlotSeriesView1.Indicators.AddRange(new DevExpress.XtraCharts.Indicator[] {
-            averageTrueRange1});
             series2.View = swiftPlotSeriesView1;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series2};
@@ -259,9 +250,11 @@
             // 
             // simpleButton1
             // 
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.simpleButton1.Location = new System.Drawing.Point(500, 12);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(60, 22);
+            this.simpleButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.simpleButton1.Size = new System.Drawing.Size(68, 22);
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 13;
             this.simpleButton1.Text = "Marker";
@@ -393,26 +386,26 @@
             // 
             this.layoutControlItem8.Control = this.simpleButton1;
             this.layoutControlItem8.Location = new System.Drawing.Point(488, 0);
-            this.layoutControlItem8.MaxSize = new System.Drawing.Size(64, 26);
-            this.layoutControlItem8.MinSize = new System.Drawing.Size(64, 26);
+            this.layoutControlItem8.MaxSize = new System.Drawing.Size(72, 26);
+            this.layoutControlItem8.MinSize = new System.Drawing.Size(72, 26);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(64, 26);
+            this.layoutControlItem8.Size = new System.Drawing.Size(72, 26);
             this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(552, 0);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(271, 26);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // timer1
             // 
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(560, 0);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(263, 26);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // UIFrequecyChart
             // 
@@ -430,7 +423,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(strip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(averageTrueRange1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
@@ -479,9 +471,9 @@
         private DevExpress.XtraLayout.LayoutControlItem panel1;
         private DevExpress.XtraCharts.ChartControl chartControl2;
         private DevExpress.XtraLayout.LayoutControlItem panel2;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }
 }

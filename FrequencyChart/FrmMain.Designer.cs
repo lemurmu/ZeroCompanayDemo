@@ -90,6 +90,7 @@
             this.Controls.Add(this.chart);
             this.Name = "FrmMain";
             this.Text = "频谱图";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(strip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).EndInit();

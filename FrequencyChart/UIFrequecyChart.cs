@@ -16,6 +16,8 @@ using System.IO;
 using DevExpress.Utils.Extensions;
 using DevExpress.XtraSplashScreen;
 using DevExpress.Charts.Model;
+using System.Configuration;
+using Itc.Library.Basic;
 
 namespace FrequencyChart
 {
@@ -30,7 +32,7 @@ namespace FrequencyChart
         readonly string[] files = { "Audio\\test1.wav", "Audio\\test2.wav", "Audio\\test3.wav", "Audio\\test4.wav", "Audio\\test5.wav" };
         readonly string[] Honeyfiles = { "Honey\\1.wav", "Honey\\2.wav", "Honey\\3.wav", "Honey\\4.wav", "Honey\\2.wav" };
         readonly double[] nums = new double[] { 0.1235468, -0.14500 };
-        readonly string receiverFile = "ReceiverData\\";
+        readonly string receiverFile = "ReceiverData\\Data\\";
         readonly Dictionary<string, List<double>> receiverDict = new Dictionary<string, List<double>>();
 
         const int receiverFileCount = 1200;
@@ -41,13 +43,12 @@ namespace FrequencyChart
         const int dataPosition = 40;
         Random rd = new Random();
         List<double> data;
+        FrmMarker frmMarker;
 
         private async void Init()
         {
-            var view = chartControl1.Series[0].View.GetType();
-            SwiftPlotSeriesView seriesView = new SwiftPlotSeriesView();
             SwiftPlotDiagram diagram = (SwiftPlotDiagram)(this.chartControl1.Diagram);
-            diagram.AxisY.WholeRange.SetMinMaxValues(-50, 50);
+            diagram.AxisY.WholeRange.SetMinMaxValues(-50, 100);
             diagram.AxisX.WholeRange.SetMinMaxValues(1, 5981);
             diagram.AxisY.WholeRange.AlwaysShowZeroLevel = false;
             panel2.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -275,11 +276,20 @@ namespace FrequencyChart
             SeriesPoint[] seriesPoints = new SeriesPoint[data.Count];
             for (int i = 0; i < data.Count; i++)
             {
-                seriesPoints[i] = new SeriesPoint(i, data[i]);
+                seriesPoints[i] = new SeriesPoint(i + 1, data[i]);
             }
             this.chartControl1.Series[0].Points.Clear();
             this.chartControl1.Series[0].Points.AddRange(seriesPoints);
 
+            int freq1 = int.Parse(ToolConfig.GetAppSetting("freq1"));
+            int freq2 = int.Parse(ToolConfig.GetAppSetting("freq2"));
+            bool visible1 = Convert.ToBoolean(ToolConfig.GetAppSetting("mark1visible"));
+            bool visible2 = Convert.ToBoolean(ToolConfig.GetAppSetting("mark2visible"));
+            string[] rgb1 = ToolConfig.GetAppSetting("color1").Split(',');
+            string[] rgb2 = ToolConfig.GetAppSetting("color2").Split(',');
+
+            SetMarker(freq1, visible1, seriesPoints[freq1 - 1].Values[0], Color.FromArgb(int.Parse(rgb1[0]), int.Parse(rgb1[1]), int.Parse(rgb1[2])));
+            SetMarker(freq2, visible2, seriesPoints[freq2 - 1].Values[0], Color.FromArgb(int.Parse(rgb2[0]), int.Parse(rgb2[1]), int.Parse(rgb2[2])));
 
             if (fileIndex == receiverFileCount)
             {
@@ -299,9 +309,45 @@ namespace FrequencyChart
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            FrmMarker frmMarker = new FrmMarker();
-           
-            frmMarker.ShowDialog();
+            if (frmMarker == null || frmMarker.IsDisposed)
+            {
+                frmMarker = new FrmMarker();
+                frmMarker.StartPosition = FormStartPosition.Manual;
+                frmMarker.Location = new Point(this.chartControl1.Width / 2 - frmMarker.Width/2, frmMarker.Height / 2 + layoutControlItem1.Height);
+                frmMarker.Show();
+            }
+            else
+            {
+                frmMarker.Activate();
+            }
+
+        }
+
+        private void SetMarker(int freq, bool check, double value, Color color)
+        {
+            if (check)
+            {
+                SeriesPoint point = chartControl1.Series[0].Points[freq - 1];
+                SeriesPointAnchorPoint anchorPoint = new SeriesPointAnchorPoint();
+                anchorPoint.SeriesPoint = point;
+
+                TextAnnotation txtAnnotation = new TextAnnotation
+                {
+                    RuntimeRotation = false,
+                    RuntimeResizing = false,
+                    RuntimeMoving = true,
+                    RuntimeAnchoring = false,
+
+                    Text = $"实时值:{value}",
+                    BackColor = color,
+                    ShapePosition = new RelativePosition(319.97, -48),
+                    AnchorPoint = anchorPoint
+                };
+
+                chartControl1.AnnotationRepository.Add(txtAnnotation);
+            }
+
+
         }
     }
 }

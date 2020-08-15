@@ -21,9 +21,9 @@ namespace FrequencyChart
         public FrmMain()
         {
             InitializeComponent();
-             Init();
-          //  this.Controls.Clear();
-           // this.Controls.Add(new UIFrequecyChart { Parent = this, Dock = DockStyle.Fill });
+            //   Init();
+            this.Controls.Clear();
+            this.Controls.Add(new UIFrequecyChart { Parent = this, Dock = DockStyle.Fill });
         }
 
 
@@ -116,9 +116,9 @@ namespace FrequencyChart
             currentFrameStrip.MaxLimit.AxisValue = TimeSpan.FromSeconds(1d / SamplingFrequency * this.frameEndIndex);
 
             double va = 1d / SamplingFrequency * this.frameStartIndex;
-            Console.WriteLine("start:"+va);
+            Console.WriteLine("start:" + va);
             va = 1d / SamplingFrequency * this.frameEndIndex;
-            Console.WriteLine("end:"+va);
+            Console.WriteLine("end:" + va);
         }
         void RecalculateFrequencySpectrum()
         {
