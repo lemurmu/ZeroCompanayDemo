@@ -45,7 +45,7 @@
             <DockPanel>
                 <DockPanel DockPanel.Dock="Bottom">
                     <StackPanel Orientation="Horizontal" Background="Black">
-                        <TextBox Height="30" Width="200" Background="Black" BorderBrush="Cyan" Foreground="Cyan" Name="txtRtsp" TextAlignment="Center"  VerticalContentAlignment="Center" Text="https://vg-dl.nos-eastchina1.126.net/video/map.mp4"></TextBox>
+                        <TextBox Height="30" Width="200" Background="Black" BorderBrush="Cyan" Foreground="Cyan" Name="txtRtsp" TextAlignment="Center"  VerticalContentAlignment="Center" Text="https://vg-dl.nos-eastchina1.126.net/video/map.mp4" TextChanged="txtRtsp_TextChanged"></TextBox>
                         <Button Height="30" Width="100"   Name="ass" Style="{StaticResource SetButton}"  Click="Button_Click">播放</Button>
                         <Button Height="30" Width="100" Background="Cyan"   Click="Button_Click_1">停止</Button>
                     </StackPanel>

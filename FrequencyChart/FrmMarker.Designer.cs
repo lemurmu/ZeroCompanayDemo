@@ -48,6 +48,8 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.simpleLabelItem1 = new DevExpress.XtraLayout.SimpleLabelItem();
             this.simpleLabelItem2 = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.value_lab1 = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.value_lab2 = new DevExpress.XtraLayout.SimpleLabelItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mark2_color.Properties)).BeginInit();
@@ -69,6 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.value_lab1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.value_lab2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -85,29 +89,29 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(383, 70);
+            this.layoutControl1.Size = new System.Drawing.Size(456, 71);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // mark2_color
             // 
             this.mark2_color.EditValue = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.mark2_color.Location = new System.Drawing.Point(263, 36);
+            this.mark2_color.Location = new System.Drawing.Point(269, 36);
             this.mark2_color.Name = "mark2_color";
             this.mark2_color.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.mark2_color.Size = new System.Drawing.Size(108, 20);
+            this.mark2_color.Size = new System.Drawing.Size(50, 20);
             this.mark2_color.StyleController = this.layoutControl1;
             this.mark2_color.TabIndex = 7;
             // 
             // mark1_color
             // 
             this.mark1_color.EditValue = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.mark1_color.Location = new System.Drawing.Point(263, 12);
+            this.mark1_color.Location = new System.Drawing.Point(269, 12);
             this.mark1_color.Name = "mark1_color";
             this.mark1_color.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.mark1_color.Size = new System.Drawing.Size(108, 20);
+            this.mark1_color.Size = new System.Drawing.Size(50, 20);
             this.mark1_color.StyleController = this.layoutControl1;
             this.mark1_color.TabIndex = 5;
             // 
@@ -124,7 +128,7 @@
             "实时值",
             "平均值"});
             this.comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit1.Size = new System.Drawing.Size(63, 20);
+            this.comboBoxEdit1.Size = new System.Drawing.Size(70, 20);
             this.comboBoxEdit1.StyleController = this.layoutControl1;
             this.comboBoxEdit1.TabIndex = 4;
             // 
@@ -141,25 +145,25 @@
             "实时值",
             "平均值"});
             this.comboBoxEdit2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit2.Size = new System.Drawing.Size(63, 20);
+            this.comboBoxEdit2.Size = new System.Drawing.Size(70, 20);
             this.comboBoxEdit2.StyleController = this.layoutControl1;
             this.comboBoxEdit2.TabIndex = 6;
             // 
             // display_check1
             // 
-            this.display_check1.Location = new System.Drawing.Point(208, 12);
+            this.display_check1.Location = new System.Drawing.Point(220, 12);
             this.display_check1.Name = "display_check1";
             this.display_check1.Properties.Caption = "显示";
-            this.display_check1.Size = new System.Drawing.Size(51, 18);
+            this.display_check1.Size = new System.Drawing.Size(45, 18);
             this.display_check1.StyleController = this.layoutControl1;
             this.display_check1.TabIndex = 8;
             // 
             // display_check2
             // 
-            this.display_check2.Location = new System.Drawing.Point(208, 36);
+            this.display_check2.Location = new System.Drawing.Point(220, 36);
             this.display_check2.Name = "display_check2";
             this.display_check2.Properties.Caption = "显示";
-            this.display_check2.Size = new System.Drawing.Size(51, 18);
+            this.display_check2.Size = new System.Drawing.Size(45, 18);
             this.display_check2.StyleController = this.layoutControl1;
             this.display_check2.TabIndex = 9;
             // 
@@ -170,8 +174,10 @@
             0,
             0,
             0});
-            this.freq1_txt.Location = new System.Drawing.Point(106, 12);
+            this.freq1_txt.Location = new System.Drawing.Point(115, 12);
             this.freq1_txt.Name = "freq1_txt";
+            this.freq1_txt.Properties.Appearance.Options.UseTextOptions = true;
+            this.freq1_txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.freq1_txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.freq1_txt.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
@@ -186,7 +192,7 @@
             0,
             0,
             0});
-            this.freq1_txt.Size = new System.Drawing.Size(70, 20);
+            this.freq1_txt.Size = new System.Drawing.Size(63, 20);
             this.freq1_txt.StyleController = this.layoutControl1;
             this.freq1_txt.TabIndex = 10;
             // 
@@ -197,8 +203,10 @@
             0,
             0,
             0});
-            this.freq2_txt.Location = new System.Drawing.Point(106, 36);
+            this.freq2_txt.Location = new System.Drawing.Point(115, 36);
             this.freq2_txt.Name = "freq2_txt";
+            this.freq2_txt.Properties.Appearance.Options.UseTextOptions = true;
+            this.freq2_txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.freq2_txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.freq2_txt.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
@@ -213,7 +221,7 @@
             0,
             0,
             0});
-            this.freq2_txt.Size = new System.Drawing.Size(70, 20);
+            this.freq2_txt.Size = new System.Drawing.Size(63, 20);
             this.freq2_txt.StyleController = this.layoutControl1;
             this.freq2_txt.TabIndex = 11;
             // 
@@ -226,40 +234,51 @@
             this.layoutControlItem2,
             this.layoutControlItem4,
             this.layoutControlItem3,
-            this.layoutControlItem5,
-            this.layoutControlItem6,
             this.layoutControlItem7,
             this.layoutControlItem8,
+            this.value_lab1,
+            this.value_lab2,
             this.simpleLabelItem1,
-            this.simpleLabelItem2});
+            this.layoutControlItem5,
+            this.simpleLabelItem2,
+            this.layoutControlItem6});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(383, 70);
+            this.Root.Size = new System.Drawing.Size(456, 71);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.comboBoxEdit1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(74, 24);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(74, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(67, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(74, 24);
+            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.mark1_color;
-            this.layoutControlItem2.Location = new System.Drawing.Point(251, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(257, 0);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(54, 24);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(54, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(112, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(54, 24);
+            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.mark2_color;
-            this.layoutControlItem4.Location = new System.Drawing.Point(251, 24);
+            this.layoutControlItem4.Location = new System.Drawing.Point(257, 24);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(54, 27);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(54, 27);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(112, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(54, 27);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -267,70 +286,117 @@
             // 
             this.layoutControlItem3.Control = this.comboBoxEdit2;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(74, 24);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(74, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(67, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(74, 27);
+            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.display_check1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(196, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(208, 0);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(49, 24);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(49, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(55, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(49, 24);
+            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.display_check2;
-            this.layoutControlItem6.Location = new System.Drawing.Point(196, 24);
+            this.layoutControlItem6.Location = new System.Drawing.Point(208, 24);
+            this.layoutControlItem6.MaxSize = new System.Drawing.Size(49, 27);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(49, 27);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(55, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(49, 27);
+            this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem7
             // 
+            this.layoutControlItem7.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.layoutControlItem7.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.layoutControlItem7.Control = this.freq1_txt;
-            this.layoutControlItem7.Location = new System.Drawing.Point(67, 0);
+            this.layoutControlItem7.Location = new System.Drawing.Point(74, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(101, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(96, 24);
             this.layoutControlItem7.Text = "频率";
+            this.layoutControlItem7.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem7.TextSize = new System.Drawing.Size(24, 14);
+            this.layoutControlItem7.TextToControlDistance = 5;
             // 
             // layoutControlItem8
             // 
+            this.layoutControlItem8.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.layoutControlItem8.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.layoutControlItem8.Control = this.freq2_txt;
-            this.layoutControlItem8.Location = new System.Drawing.Point(67, 24);
+            this.layoutControlItem8.Location = new System.Drawing.Point(74, 24);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(101, 26);
+            this.layoutControlItem8.Size = new System.Drawing.Size(96, 27);
             this.layoutControlItem8.Text = "频率";
+            this.layoutControlItem8.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem8.TextSize = new System.Drawing.Size(24, 14);
+            this.layoutControlItem8.TextToControlDistance = 5;
             // 
             // simpleLabelItem1
             // 
             this.simpleLabelItem1.AllowHotTrack = false;
-            this.simpleLabelItem1.Location = new System.Drawing.Point(168, 0);
+            this.simpleLabelItem1.Location = new System.Drawing.Point(170, 0);
+            this.simpleLabelItem1.MaxSize = new System.Drawing.Size(38, 24);
+            this.simpleLabelItem1.MinSize = new System.Drawing.Size(38, 24);
             this.simpleLabelItem1.Name = "simpleLabelItem1";
-            this.simpleLabelItem1.Size = new System.Drawing.Size(28, 24);
+            this.simpleLabelItem1.Size = new System.Drawing.Size(38, 24);
+            this.simpleLabelItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem1.Text = "MHz";
-            this.simpleLabelItem1.TextSize = new System.Drawing.Size(24, 14);
+            this.simpleLabelItem1.TextSize = new System.Drawing.Size(32, 14);
             // 
             // simpleLabelItem2
             // 
             this.simpleLabelItem2.AllowHotTrack = false;
-            this.simpleLabelItem2.Location = new System.Drawing.Point(168, 24);
+            this.simpleLabelItem2.Location = new System.Drawing.Point(170, 24);
+            this.simpleLabelItem2.MaxSize = new System.Drawing.Size(38, 27);
+            this.simpleLabelItem2.MinSize = new System.Drawing.Size(38, 27);
             this.simpleLabelItem2.Name = "simpleLabelItem2";
-            this.simpleLabelItem2.Size = new System.Drawing.Size(28, 26);
+            this.simpleLabelItem2.Size = new System.Drawing.Size(38, 27);
+            this.simpleLabelItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem2.Text = "MHz";
-            this.simpleLabelItem2.TextSize = new System.Drawing.Size(24, 14);
+            this.simpleLabelItem2.TextSize = new System.Drawing.Size(32, 14);
+            // 
+            // value_lab1
+            // 
+            this.value_lab1.AllowHotTrack = false;
+            this.value_lab1.Location = new System.Drawing.Point(311, 0);
+            this.value_lab1.MaxSize = new System.Drawing.Size(125, 24);
+            this.value_lab1.MinSize = new System.Drawing.Size(125, 24);
+            this.value_lab1.Name = "value_lab1";
+            this.value_lab1.Size = new System.Drawing.Size(125, 24);
+            this.value_lab1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.value_lab1.Text = "value:";
+            this.value_lab1.TextSize = new System.Drawing.Size(32, 14);
+            // 
+            // value_lab2
+            // 
+            this.value_lab2.AllowHotTrack = false;
+            this.value_lab2.Location = new System.Drawing.Point(311, 24);
+            this.value_lab2.MaxSize = new System.Drawing.Size(125, 27);
+            this.value_lab2.MinSize = new System.Drawing.Size(125, 27);
+            this.value_lab2.Name = "value_lab2";
+            this.value_lab2.Size = new System.Drawing.Size(125, 27);
+            this.value_lab2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.value_lab2.Text = "value:";
+            this.value_lab2.TextSize = new System.Drawing.Size(32, 14);
             // 
             // FrmMarker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 70);
+            this.ClientSize = new System.Drawing.Size(456, 71);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -359,6 +425,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.value_lab1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.value_lab2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -385,5 +453,7 @@
         private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem2;
         private DevExpress.XtraEditors.SpinEdit freq1_txt;
         private DevExpress.XtraEditors.SpinEdit freq2_txt;
+        private DevExpress.XtraLayout.SimpleLabelItem value_lab1;
+        private DevExpress.XtraLayout.SimpleLabelItem value_lab2;
     }
 }

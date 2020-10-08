@@ -26,8 +26,11 @@ namespace FrequencyChart
         public UIFrequecyChart()
         {
             InitializeComponent();
+
             // Init();
         }
+
+        WaterFallChart.ChartWnd1 waterChart = new WaterFallChart.ChartWnd1();
 
         readonly string[] files = { "Audio\\test1.wav", "Audio\\test2.wav", "Audio\\test3.wav", "Audio\\test4.wav", "Audio\\test5.wav" };
         readonly string[] Honeyfiles = { "Honey\\1.wav", "Honey\\2.wav", "Honey\\3.wav", "Honey\\4.wav", "Honey\\2.wav" };
@@ -45,13 +48,26 @@ namespace FrequencyChart
         List<double> data;
         FrmMarker frmMarker;
 
+        protected override void OnLoad(EventArgs e)
+        {
+            if (!DesignMode)
+            {
+                elementHost1.Child = waterChart;
+            }
+
+            base.OnLoad(e);
+        }
+
         private async void Init()
         {
             SwiftPlotDiagram diagram = (SwiftPlotDiagram)(this.chartControl1.Diagram);
             diagram.AxisY.WholeRange.SetMinMaxValues(-50, 100);
             diagram.AxisX.WholeRange.SetMinMaxValues(1, 5981);
             diagram.AxisY.WholeRange.AlwaysShowZeroLevel = false;
-            panel2.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+
+            waterChart.MaxAxisY = 100;
+            waterChart.MinAxisY = -50;
 
             IOverlaySplashScreenHandle handle = SplashScreenManager.ShowOverlayForm(this);
             for (int k = 0; k < receiverFileCount; k++)
@@ -64,6 +80,9 @@ namespace FrequencyChart
 
             timer1.Enabled = true;
             timer1.Interval = 1;
+
+            timer2.Enabled = true;
+            timer2.Interval = 1;
         }
         async void Plot()
         {
@@ -180,7 +199,6 @@ namespace FrequencyChart
         private void UIFrequecyChart_Load(object sender, EventArgs e)
         {
             Init();
-
         }
 
         private void checkEdit1_CheckStateChanged(object sender, EventArgs e)
@@ -211,14 +229,16 @@ namespace FrequencyChart
         {
             if (checkEdit2.Checked)
             {
-                panel2.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 int he = (int)((Root.Height - layoutControlItem1.Height) / 2d);
+                layoutControlItem9.Height = he;
                 panel1.Height = he;
-                panel2.Height = he;
+
+                //todo:添加瀑布图
             }
             else
             {
-                panel2.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             }
         }
 
@@ -268,19 +288,40 @@ namespace FrequencyChart
             MoveStrips();
         }
 
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            //瀑布图
+            if (checkEdit2.Checked)
+            {
+                if (points != null)
+                    waterChart.AddData(points);
+            }
+        }
+
+        System.Windows.Point[] points;
         void PloatReceiverData()
         {
             string filename = $"{receiverFile}{fileIndex}_data.txt";
             List<double> data = receiverDict[filename];
 
             SeriesPoint[] seriesPoints = new SeriesPoint[data.Count];
+            points = new System.Windows.Point[data.Count];
             for (int i = 0; i < data.Count; i++)
             {
                 seriesPoints[i] = new SeriesPoint(i + 1, data[i]);
+                points[i] = new System.Windows.Point((double)(i + 1), data[i]);
+
+                if (i == 2999)//模拟一个信号
+                {
+                    seriesPoints[i] = new SeriesPoint(i + 1, 68);
+                    points[i] = new System.Windows.Point((double)(i + 1), 68);
+                }
+
             }
             this.chartControl1.Series[0].Points.Clear();
             this.chartControl1.Series[0].Points.AddRange(seriesPoints);
 
+            //设置Marker
             int freq1 = int.Parse(ToolConfig.GetAppSetting("freq1"));
             int freq2 = int.Parse(ToolConfig.GetAppSetting("freq2"));
             bool visible1 = Convert.ToBoolean(ToolConfig.GetAppSetting("mark1visible"));
@@ -290,6 +331,25 @@ namespace FrequencyChart
 
             SetMarker(freq1, visible1, seriesPoints[freq1 - 1].Values[0], Color.FromArgb(int.Parse(rgb1[0]), int.Parse(rgb1[1]), int.Parse(rgb1[2])));
             SetMarker(freq2, visible2, seriesPoints[freq2 - 1].Values[0], Color.FromArgb(int.Parse(rgb2[0]), int.Parse(rgb2[1]), int.Parse(rgb2[2])));
+
+            if (frmMarker != null)
+            {
+                frmMarker.Value1 = seriesPoints[freq1 - 1].Values[0];
+                frmMarker.Value2 = seriesPoints[freq2 - 1].Values[0];
+            }
+
+
+            //if (checkEdit2.Checked)
+            //{
+            //    Task.Run(() =>
+            //    {
+            //        if (points != null)
+            //            waterChart.AddData(points);
+            //    });
+            //}
+
+
+
 
             if (fileIndex == receiverFileCount)
             {
@@ -313,7 +373,7 @@ namespace FrequencyChart
             {
                 frmMarker = new FrmMarker();
                 frmMarker.StartPosition = FormStartPosition.Manual;
-                frmMarker.Location = new Point(this.chartControl1.Width / 2 - frmMarker.Width/2, frmMarker.Height / 2 + layoutControlItem1.Height);
+                frmMarker.Location = new Point(this.chartControl1.Width / 2 - frmMarker.Width / 2, frmMarker.Height / 2 + layoutControlItem1.Height);
                 frmMarker.Show();
             }
             else
@@ -330,6 +390,8 @@ namespace FrequencyChart
                 SeriesPoint point = chartControl1.Series[0].Points[freq - 1];
                 SeriesPointAnchorPoint anchorPoint = new SeriesPointAnchorPoint();
                 anchorPoint.SeriesPoint = point;
+
+
 
                 TextAnnotation txtAnnotation = new TextAnnotation
                 {
@@ -349,5 +411,7 @@ namespace FrequencyChart
 
 
         }
+
+
     }
 }

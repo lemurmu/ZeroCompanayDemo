@@ -29,16 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView1 = new DevExpress.XtraCharts.SplineSeriesView();
             DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram1 = new DevExpress.XtraCharts.SwiftPlotDiagram();
             DevExpress.XtraCharts.Strip strip1 = new DevExpress.XtraCharts.Strip();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView1 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UIFrequecyChart));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
@@ -57,20 +53,19 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panel1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panel2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.panelControl = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(strip1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
@@ -88,14 +83,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl)).BeginInit();
+            this.panelControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.chartControl2);
+            this.layoutControl1.Controls.Add(this.panelControl);
             this.layoutControl1.Controls.Add(this.chartControl1);
             this.layoutControl1.Controls.Add(this.comboBoxEdit1);
             this.layoutControl1.Controls.Add(this.checkEdit1);
@@ -113,29 +110,9 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // chartControl2
-            // 
-            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl2.Diagram = xyDiagram1;
-            this.chartControl2.Legend.Name = "Default Legend";
-            this.chartControl2.Location = new System.Drawing.Point(12, 295);
-            this.chartControl2.Name = "chartControl2";
-            this.chartControl2.PaletteName = "Green";
-            series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
-            series1.Name = "water";
-            splineSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(192)))));
-            splineSeriesView1.LineMarkerOptions.Kind = DevExpress.XtraCharts.MarkerKind.Diamond;
-            splineSeriesView1.LineMarkerOptions.Size = 14;
-            splineSeriesView1.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series1.View = splineSeriesView1;
-            this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
-            this.chartControl2.Size = new System.Drawing.Size(819, 295);
-            this.chartControl2.TabIndex = 12;
-            // 
             // chartControl1
             // 
+            this.chartControl1.BorderOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             swiftPlotDiagram1.AxisX.GridLines.Visible = true;
             strip1.MaxLimit.AxisValueSerializable = "1";
             strip1.MinLimit.AxisValueSerializable = "0";
@@ -152,6 +129,7 @@
             swiftPlotDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             swiftPlotDiagram1.AxisY.Visibility = DevExpress.Utils.DefaultBoolean.True;
             swiftPlotDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram1.EnableAxisXScrolling = true;
             swiftPlotDiagram1.EnableAxisXZooming = true;
             this.chartControl1.Diagram = swiftPlotDiagram1;
             this.chartControl1.Legend.MarkerOffset = 1;
@@ -159,12 +137,12 @@
             this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartControl1.Location = new System.Drawing.Point(12, 38);
             this.chartControl1.Name = "chartControl1";
-            series2.Name = "freq";
+            series1.Name = "freq";
             swiftPlotSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            series2.View = swiftPlotSeriesView1;
+            series1.View = swiftPlotSeriesView1;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
-            this.chartControl1.Size = new System.Drawing.Size(819, 253);
+        series1};
+            this.chartControl1.Size = new System.Drawing.Size(819, 254);
             this.chartControl1.TabIndex = 11;
             // 
             // comboBoxEdit1
@@ -273,9 +251,9 @@
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.panel1,
-            this.panel2,
             this.layoutControlItem8,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.layoutControlItem9});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(843, 602);
             this.Root.TextVisible = false;
@@ -369,18 +347,9 @@
             this.panel1.Control = this.chartControl1;
             this.panel1.Location = new System.Drawing.Point(0, 26);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(823, 257);
+            this.panel1.Size = new System.Drawing.Size(823, 258);
             this.panel1.TextSize = new System.Drawing.Size(0, 0);
             this.panel1.TextVisible = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Control = this.chartControl2;
-            this.panel2.Location = new System.Drawing.Point(0, 283);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(823, 299);
-            this.panel2.TextSize = new System.Drawing.Size(0, 0);
-            this.panel2.TextVisible = false;
             // 
             // layoutControlItem8
             // 
@@ -394,11 +363,6 @@
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 10;
-            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
-            // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
@@ -406,6 +370,42 @@
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(263, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 2;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 1;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // elementHost1
+            // 
+            this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost1.Location = new System.Drawing.Point(2, 2);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(815, 290);
+            this.elementHost1.TabIndex = 0;
+            this.elementHost1.Child = null;
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.panelControl;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 284);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(823, 298);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
+            // 
+            // panelControl
+            // 
+            this.panelControl.Controls.Add(this.elementHost1);
+            this.panelControl.Location = new System.Drawing.Point(12, 296);
+            this.panelControl.Name = "panelControl";
+            this.panelControl.Size = new System.Drawing.Size(819, 294);
+            this.panelControl.TabIndex = 14;
             // 
             // UIFrequecyChart
             // 
@@ -417,14 +417,10 @@
             this.Load += new System.EventHandler(this.UIFrequecyChart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(strip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
@@ -442,9 +438,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl)).EndInit();
+            this.panelControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -469,11 +467,13 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraCharts.ChartControl chartControl1;
         private DevExpress.XtraLayout.LayoutControlItem panel1;
-        private DevExpress.XtraCharts.ChartControl chartControl2;
-        private DevExpress.XtraLayout.LayoutControlItem panel2;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private System.Windows.Forms.Timer timer2;
+        private DevExpress.XtraEditors.PanelControl panelControl;
+        private System.Windows.Forms.Integration.ElementHost elementHost1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
     }
 }

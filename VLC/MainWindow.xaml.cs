@@ -47,5 +47,10 @@ namespace VLC
                 this.vlcCtr.SourceProvider.MediaPlayer.Stop();//这里要开线程处理，不然会阻塞播放
             });
         }
+
+        private void txtRtsp_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

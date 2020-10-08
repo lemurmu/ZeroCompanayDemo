@@ -56,5 +56,21 @@ namespace FrequencyChart
             };
         }
 
+        public double Value1
+        {
+            set
+            {
+                this.value_lab1.Text = "value:" + value.ToString("0.000");
+            }
+        }
+
+        public double Value2
+        {
+            set
+            {
+                this.value_lab2.Text = "value:" + value.ToString("0.000");
+            }
+        }
+
     }
 }
